@@ -1,0 +1,51 @@
+{"users": [
+    {
+      "id": 1,
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "john.doe@example.com",
+      "phone": "123-456-7890",
+      "address": {
+        "street": "123 Main St",
+        "city": "Anytown",
+        "zipcode": "12345"
+      }
+    },
+    {
+      "id": 2,
+      "firstName": "Jane",
+      "lastName": "Smith",
+      "email": "jane.smith@example.com",
+      "phone": "987-654-3210",
+      "address": {
+        "street": "456 Oak St",
+        "city": "Othertown",
+        "zipcode": "67890"
+      }
+    },
+    {
+      "id": 3,
+      "firstName": "Alice",
+      "lastName": "Johnson",
+      "email": "alice.johnson@example.com",
+      "phone": "555-666-7777",
+      "address": {
+        "street": "789 Pine St",
+        "city": "Sample City",
+        "zipcode": "11223"
+      }
+    },
+    {
+      "id": 4,
+      "firstName": "Joakim",
+      "lastName": "Nyström",
+      "email": "joakim.nystrom@amaceit.se",
+      "phone": "555-666-7777",
+      "address": {
+        "street": "Trygarnsvägen 11",
+        "city": "Åkersberga",
+        "zipcode": "11223"
+      }
+    }
+  ]
+}

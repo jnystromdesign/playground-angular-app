@@ -1,0 +1,19 @@
+<button (click)="onLoadUsers()">Load Users</button>
+<button (click)="onClearUsers()">Clear Users</button>
+<button (click)="onAddUser()">
+  @if(isUserMenuShown){ Hide menu } @else(){ Add user }
+</button>
+
+@if (loading$ | async) {
+<div>Loading...</div>
+
+} @if (error$ | async; as error) {
+<div style="color: red">{{ error }}</div>
+
+} @if (users$ | async; as users) {
+<ul>
+  @for (user of users; track user.id) {
+  <li>{{ user.firstName }} {{ user.lastName }}, {{ user.address.city }}</li>
+  }
+</ul>
+}

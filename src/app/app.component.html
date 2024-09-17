@@ -1,0 +1,21 @@
+<main class="main">
+  <div class="content">
+    <div class="left-side">
+      <app-logo />
+      <h1>Hello, {{ title }}</h1>
+      <p>Congratulations! Your app is running. 🎉</p>
+      <app-user-list
+        (addUserEvent)="openAddUsers()"
+        (onCancel)="closeAddUsers()"
+        [isUserMenuShown]="showAddUsers()"
+      />
+    </div>
+    <div class="divider" role="separator" aria-label="Divider"></div>
+    <div class="right-side">
+      @if (showAddUsers()){
+      <app-user-form (onSubmitted)="closeAddUsers()" />
+      }
+    </div>
+  </div>
+</main>
+<router-outlet />
