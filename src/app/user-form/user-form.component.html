@@ -1,32 +1,12 @@
 <form class="user-form" (ngSubmit)="onSubmitForm()">
-  <div class="input-group">
-    <label for="firstName">First name</label>
-    <input
-      #nameInput
-      id="firstName"
-      name="firstName"
-      type="text"
-      [(ngModel)]="firstName"
-    />
-  </div>
-  <div class="input-group">
-    <label for="lastName">Last name</label>
-    <input
-      #nameInput
-      id="lastName"
-      name="lastName"
-      type="text"
-      [(ngModel)]="lastName"
-    />
-  </div>
-  <div class="input-group">
-    <label for="email">Email</label>
-    <input id="email" name="email" type="text" [(ngModel)]="email" />
-  </div>
-  <div class="input-group">
-    <label for="phone">Phone</label>
-    <input id="phone" name="phone" type="text" [(ngModel)]="phone" />
-  </div>
+  <app-input name="firstName" label="First name" [(ngModel)]="firstName" />
+  <app-input name="lastName" label="Last name" [(ngModel)]="lastName" />
+  <app-input name="email" label="Email" [(ngModel)]="email" />
+  <app-input name="phone" label="Phone" [(ngModel)]="phone" />
+  <app-input name="street" label="Street address" [(ngModel)]="street" />
+  <app-input name="zipcode" label="Postal code" [(ngModel)]="zipcode" />
+  <app-input name="city" label="City" [(ngModel)]="city" />
+
   <div class="buttons-layout buttons-layout--reverse">
     <button type="submit">Save</button>
     <button type="button" (click)="close()">Cancel</button>

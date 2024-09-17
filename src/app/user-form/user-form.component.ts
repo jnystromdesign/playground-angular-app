@@ -9,6 +9,7 @@ import {
 } from '@angular/core';
 
 import { FormsModule } from '@angular/forms';
+import { InputComponent } from '../shared/form-elements/input/input.component';
 import { Store } from '@ngrx/store';
 import { UserService } from '../core/user.service';
 import { addUser } from '../state/users/user.actions';
@@ -16,7 +17,7 @@ import { addUser } from '../state/users/user.actions';
 @Component({
   selector: 'app-user-form',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, InputComponent],
   templateUrl: './user-form.component.html',
   styleUrl: './user-form.component.scss',
 })
@@ -29,6 +30,9 @@ export class UserFormComponent implements AfterViewInit {
   lastName = '';
   email = '';
   phone = '';
+  street = '';
+  zipcode = '';
+  city = '';
 
   ngAfterViewInit() {
     this.nameInput.nativeElement.focus();
@@ -45,9 +49,9 @@ export class UserFormComponent implements AfterViewInit {
       email: this.email,
       phone: this.phone,
       address: {
-        city: 'Åkersberga',
-        street: 'testgatan',
-        zipcode: '12345',
+        city: this.city,
+        street: this.street,
+        zipcode: this.zipcode,
       },
     };
     this.store.dispatch(addUser({ user }));
