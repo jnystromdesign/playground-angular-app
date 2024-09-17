@@ -4,6 +4,7 @@ const express = require('express')
 var cors = require('cors')
 const path = require('path')
 const PORT = 3000
+const fs = require('fs')
 
 const dbPath = path.resolve(__dirname, 'db/test-db.json');
 var db = new JsonDB(new Config(dbPath, true, true, '/'));
@@ -14,6 +15,26 @@ async function getLastUserId(){
   const mostRecentId = searchOrder.find(user => user && user.id !== null)
   return mostRecentId
 }
+
+async function initSeeding(){
+  const file = await fs.existsSync(dbPath);
+  const seedData = {
+    "address": {
+        "city": "Göteborg",
+        "street": "Avenyn 5",
+        "zipcode": "41114"
+    },
+    "email": "anna.berg@example.com",
+    "firstName": "Anna",
+    "lastName": "Berg",
+    "phone": "031-987-6543",
+    "id": 20
+};
+  if(!file){
+    await db.push('/users[]', seedData).catch(error=>res.json(error));
+  }
+}
+initSeeding();
 
 const app = express();
 app.use(express.json());
